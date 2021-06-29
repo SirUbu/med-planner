@@ -52,7 +52,11 @@ async function selectAppointmentHandler(event) {
         let typography = event.target.parentElement.children[0].textContent.split(" ")[1];
 
         if (typography === "PM") {
-            appointment_time = `${time + 12}:00:00`;
+            if (time === 12) {
+                appointment_time = `${time}:00:00`;
+            } else {
+                appointment_time = `${time + 12}:00:00`;
+            }
         } else {
             appointment_time = `${time}:00:00`;
         }
